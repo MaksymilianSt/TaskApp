@@ -1,0 +1,15 @@
+spring:
+  h2.console:
+     enabled: true
+     path: '/console'
+  datasource:
+    url: 'jdbc:h2:file:C:./Task-db'
+  jpa:
+    hibernate.ddl-auto: create-drop
+  main:
+        banner-mode: off
+task.template.allowMultipleTasks: false
+
+
+
+
