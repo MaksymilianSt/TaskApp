@@ -2,16 +2,21 @@ package TaskApp.demo.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDateTime;
 
 @Entity
-@Table( name = "tasks")
+@Table(name = "tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id ;
+    private int id;
     @NotBlank(message = "Task description must not be empty !")
-    private String description ;
-    private boolean done ;
+    private String description;
+    private boolean done;
+    private LocalDateTime deadline;
+    @Embedded
+    private Audit audit = new Audit();
+
 
     public Task() {
     }
@@ -39,4 +44,19 @@ public class Task {
     public void setDone(boolean done) {
         this.done = done;
     }
+
+    public LocalDateTime getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(LocalDateTime deadline) {
+        this.deadline = deadline;
+    }
+
+    public void updateFrom(final Task source) {
+        this.description = source.description;
+        this.done = source.done;
+        this.deadline = source.deadline;
+    }
+
 }
