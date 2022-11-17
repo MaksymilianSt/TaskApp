@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface TaskRepository {
     List<Task> findAll();
     Optional<Task> findById(Integer id);
-
+    boolean existsByDoneIsFalseAndGroup_Id(Integer groupId);
     Task save(Task entity);
     Page<Task> findAll(Pageable page);
     boolean existsById(Integer id);
