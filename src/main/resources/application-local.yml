@@ -3,7 +3,7 @@ spring:
      enabled: true
      path: '/console'
   datasource:
-    url: 'jdbc:h2:file:C:./Task-db'
+    url: 'jdbc:h2:file:./Task-db'
   jpa:
     hibernate.ddl-auto: validate
 
